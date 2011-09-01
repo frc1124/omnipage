@@ -1,0 +1,5 @@
+//name,display name, default,type
+image, Image (URL), url,0
+description, Description, Lorem Ipsum,1
+name,Name, Name,0
+USEIMAGE, Use the Image, 1, 0

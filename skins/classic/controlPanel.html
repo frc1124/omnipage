@@ -1,0 +1,315 @@
+[[IF MESSAGE]]<div class="ui-state-highlight ui-corner-all" style="padding:10px;"><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>{{message}}</div>[[END IF]]
+
+<!-- HTML WYSIWYG - jHTMLArea: http://jhtmlarea.codeplex.com/ -->
+
+<script type="text/javascript" src="http://uberbots.org/omni/skins/{{currentSkin}}/scripts/jquery-validator.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#smsUpdate").validate(
+{rules:{
+message:{maxlength:160,required:true}
+}
+});
+
+$("#tweet").validate(
+{rules:{
+tweet:{maxlength:140,required:true}
+}
+});
+
+$("#addSkin").validate(
+{rules:{
+skinName:{required:true},
+skinPath:{required:true}
+}
+});
+
+});
+</script>
+<script type="text/javascript">
+ $(function() {
+ $("#message").htmlarea({
+	loaded: function(){
+		// this.showHTMLView();
+	}
+ });
+ });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//accordion
+	$(".accordion").accordion({active:false});
+	$("#permissions").hide();
+	$('#logList').hide();
+	$('#oldLogs').click(function(){$('#logList').toggle()});
+	$('#findUser').click(function(){popup('http://uberbots.org/forums/memberlist.php?mode=searchuser&amp;form=select_user&amp;field=userSelect&amp;select_single=true', 760, 570, '_usersearch');
+	return false;});
+	$(".showPermissions").click(function(){$("#permissions").toggle()});
+	$("#dialog").dialog({autoOpen:false,show:"slide",hide:"slide"});
+	$("#archLog").click(function(){
+		var conf = confirm('Are you sure you want to archive the logs?', 'Confirmation');
+		if(conf)
+			window.location = "http://uberbots.org/omni/actions/logArch.php?cpanel";
+	});
+	$("#pageSelect").change(function(){
+		$("#confirmDel").attr("checked",false);
+		});
+		
+	$("#delForm").submit(function(){
+		if($("#confirmDel").attr("checked"))
+			return true;
+		else{
+			$('#dialog').html('You need to confirm the deletion!').dialog('open');
+			return false;
+			}
+	});
+	
+	$("#specialPermission").submit(function(){
+		if($("#confirmPermission").attr("checked"))
+			return true;
+		else{
+			$('#dialog').html('You need to confirm the operation').dialog('open');
+			return false;
+			}
+	});
+
+	
+			
+});
+
+function getPageMods(id){
+	$.get("/omni/modules/mod_controlPanel/history.php",{mode:'pageHistory',page:id},function(data){
+		$('#pageInfo').html(data);
+		$('.modHistoryLink').click(function(){
+			var foo = $(this).attr('id').split("_");
+			var instanceId = foo[2];
+			$.get("/omni/modules/mod_controlPanel/history.php",{mode:'moduleHistory',page:id,mod:instanceId},function(data){
+				$('#moduleInfo').html(data);
+			});
+		});
+		$(".restorePage").click(function(){
+			$.get("/omni/modules/mod_controlPanel/history.php",{mode:'restorePage',page:id},function(data){
+				alert(data);
+				$('#moduleInfo').html("");
+				$('#pageInfo').html("");
+			});
+		});
+	});
+}
+
+function find_username(url)
+{
+	popup(url, 760, 570, '_usersearch');
+	return false;
+}
+ 
+function popup(url, width, height, name)
+{
+	if (!name)
+	{
+		name = '_popup';
+	}
+ 
+	window.open(url.replace(/&amp;/g, '&'), name, 'height=' + height + ',resizable=yes,scrollbars=yes, width=' + width);
+	return false;
+}
+</script>
+<div title="Help" id="dialog">Dialog</div>
+<h1>Administrator Control Panel</h1>
+
+<div class="accordion">
+<h3><a href="#">Manage Skins</a></h3>
+<div>
+<strong>Add a Skin</strong>
+<form name="addSkin" id="addSkin" method="post" action="">
+<p><label for="skinName" style="width:150px;display:inline-block;">Skin Name: <a href="#" onclick="$('#dialog').html('This is the name for the new skin').dialog('open');">?</a></label><input type="text" name="skinName" id="skinName" /></p>
+
+<p><label for="skinPath" style="width:150px;display:inline-block;">Skin Path: <a href="#" onclick="$('#dialog').html('This is the path of the directory for the new skin. It is relative to the /omni/skins/ directory. No slashes are needed.').dialog('open');">?</a></label><input type="text" name="skinPath" id="skinPath" /></p>
+
+<p><label for="skinParent" style="width:150px;display:inline-block;">Skin Parent: <a href="#" onclick="$('#dialog').html('This is the parent for the new skin. If the new skin does not contain a certain skin file, it will be searched for in the directory of the parent. This allows for the ghosting of skins to others.').dialog('open');">?</a></label><select name="skinParent" id="skinParent">{{skins}}</select></p>
+
+<input type="hidden" name="mode" value="addSkin" />
+<input type="submit" value="Add Skin"  />
+</form>
+</div>
+
+<h3><a href="#">Create new Page</a></h3>
+<div>
+<form id="addPage" method="post" action="">
+
+<p><label for="pageTitleBox" style="width:150px;display:inline-block;">Page Title: <a href="#" onclick="$('#dialog').html('This is the browser window title, url, and sitemap title. Titles can contain only letters, numbers, and spaces.').dialog('open');">?</a>
+</label><input type="text" name="pageTitle" id="pageTitleBox"></p>
+
+<p><label for="parentSelect" style="width:150px;display:inline-block;">Parent Page: <a href="#" onclick="$('#dialog').html('This is the page under which the new page can be found in the menus, site map, and through the url.').dialog('open');">?</a></label>
+<select name="parent" id="parentSelect" style="min-width:150px;">
+
+<option value='-1'></option>
+<option value='0' style='font-weight:bold;'>Site Root</option>
+{{children}}
+</select></p>
+
+<p><label for="redirectBox" style="width:150px;display:inline-block;">Redirect: <a href="#" onclick="$('#dialog').html('If text is entered here, when the page is clicked on, the browser will instead redirect to the url entered.').dialog('open');">?</a></label><input name="redirect" id="redirectBox"></p>
+
+<p><label for="menuOrder" style="width:150px;display:inline-block;">Menu Order: <a href="#" onclick="$('#dialog').html('If a number between 0 and 100 is entered here, they will be displayed in the menu in order of lowest to highest.').dialog('open');">?</a></label><input name="menuOrder" id="menuOrder" value="0"/></p>
+
+<p><label for="inherentBox" style="width:150px;display:inline-block;">Inherent Permissions: <a href="#" onclick="$('#dialog').html('This changes whether or not users who have editing/viewing permissions in parent pages will have those permissions for the new page.').dialog('open');">?</a></label><input type="checkbox" name="inherentBox" id="inherentBox"></p>
+
+<p><label for="privateBox" style="width:150px;display:inline-block;">Private: <a href="#" onclick="$('#dialog').html('If a page is private, it can only be viewed by admins, management, and users with special permissions.').dialog('open');">?</a></label><input type="checkbox" name="privateBox" id="privateBox"></p>
+
+<p><label for="hideBox" style="width:150px;display:inline-block;">Hide in Menu: <a href="#" onclick="$('#dialog').html('If this box is checked, it will not be displayed in the menu header on all pages.').dialog('open');">?</a></label><input type="checkbox" name="hideBox" id="hideBox" /></p>
+
+<input type="hidden" name="mode" value="addPage">
+<p><input type="submit" value="Create"></p>
+</form>
+</div>
+
+<h3><a href="#">Modify an Existing Page</a></h3>
+<div>
+<form method="post" action="">
+<p><label for="pageSelect" style="width:150px;display:inline-block;">Selece a Page to Edit:</label><select name="pageSelect" id="pageSelect" style="min-width:150px;">
+<option value='-1'></option>
+{{children}}
+</select></p>
+
+<p><label for="newTitle" style="width:150px;display:inline-block;">Page Title: <a href="#" onclick="$('#dialog').html('This is the browser window title, url, and sitemap title. Titles can contain only letters, numbers, and spaces. If this is left blank, then the page title will  not be changed.').dialog('open');">?</a>
+</label><input type="text" name="newTitle" id="newTitle"></p>
+
+<p><label for="newParent" style="width:150px;display:inline-block;">Parent Page: <a href="#" onclick="$('#dialog').html('This is the page under which the new page can be found in the menus, site map, and through the url. It the blank option is selected, the parent will not be changed.').dialog('open');">?</a></label><select name="newParent" id="newParent" style="min-width:150px;">
+<option value='-1'></option>
+{{children}}</select></p>
+
+<p><label for="newMenuOrder" style="width:150px;display:inline-block;">Menu Order: <a href="#" onclick="$('#dialog').html('If a number between 0 and 100 is entered here, they will be displayed in the menu in order of lowest to highest.').dialog('open');">?</a></label><input name="newMenuOrder" id="newMenuOrder" value="0"/></p>
+
+<p><label for="newRedirectBox" style="width:150px;display:inline-block;">Redirect: <a href="#" onclick="$('#dialog').html('If text is entered here, when the page is clicked on, the browser will instead redirect to the url entered.').dialog('open');">?</a></label><input name="newRedirect" id="newRedirectBox"></p>
+
+<p><label for="newInherent" style="width:150px;display:inline-block;">Inherent Permissions: <a href="#" onclick="$('#dialog').html('This changes whether or not users who have editing/viewing permissions in parent pages will have those permissions for the new page.').dialog('open');">?</a></label><input type="checkbox" name="newInherent" id="newInherent"></p>
+
+<p><label for="newPrivate" style="width:150px;display:inline-block;">Private: <a href="#" onclick="$('#dialog').html('If a page is private, it can only be viewed by admins, management, and users with special permissions.').dialog('open');">?</a></label><input type="checkbox" name="newPrivate" id="newPrivate"></p>
+
+<p><label for="newHideBox" style="width:150px;display:inline-block;">Hide in Menu: <a href="#" onclick="$('#dialog').html('If this box is checked, it will not be displayed in the menu header on all pages.').dialog('open');">?</a></label><input type="checkbox" name="newHideBox" id="newHideBox" /></p>
+
+
+<input type="hidden" name="mode" value="editPage">
+<input type="submit" name="editSubmit" value="Change">
+
+</form>
+</div>
+
+<h3><a href="#">Delete a Page</a></h3>
+<div>
+<form method="post" action="" id="delForm">
+<p><label for="pageSelect" style="width:150px;display:inline-block;">Select Page to Delete: </label><select name="page" id="pageSelect" style="min-width:150px;">';
+<option value='-1'></option>
+{{children}}
+</select></p>
+<p><label for="confirmDel" style="width:150px;display:inline-block;">Are you sure you want to delete this page? </label><input type="checkbox" name="confirmDel" id="confirmDel">
+</p>
+<p><input type="hidden" name="mode" value="delPage">
+<input type="submit" value="Delete"></p>
+</form>
+</div>
+
+<h3><a href="#">View Page History</a></h3>
+<div>
+<form method="post" action="">
+<label for="viewEditPage" style="width:150px;display:inline-block;">Select a Page:</label><select id="viewEditPage" name="viewEditPage" onchange="getPageMods(this.value)"><option value="0">Site Root</option>{{fullChildren}}</select>
+<div name="pageInfo" id="pageInfo">
+</div>
+<div id="moduleInfo" name="moduleInfo">
+</div>
+</form>
+</div>
+
+<h3><a href="#">Special User Permissions</a></h3>
+<div>
+<form method="post" action="" id="specialPermission">
+<fieldset>
+<p><label for="addPermission" style="width:150px;display:inline-block;">Add Permissions <a href="#" onclick="$('#dialog').html('Gives the specified user special permissions on the specified page.').dialog('open');">?</a></label><input type="radio" name="permissions" value="addPermission" />
+<br><label for="editPermission" style="width:150px;display:inline-block;">Modify Permissions <a href="#" onclick="$('#dialog').html('This allows you to change the permission type for a specified user on a specified page. With this option selected, \'the permission type\' attribute does not need to be selected.').dialog('open');">?</a></label><input type="radio" name="permissions" value="editPermission" />
+<br><label for="delPermission" style="width:150px;display:inline-block;">Remove Permissions <a href="#" onclick="$('#dialog').html('This deletes special permissions for a specified user on a specified page.').dialog('open');">?</a></label><input type="radio" name="permissions" value="delPermission" />
+</fieldset><br></p>
+<p><label for="userSelect" style="width:150px;display:inline-block;">Enter Username: <a href="#" onclick="$('#dialog').html('This is the username of the user which you would like to give special permissions to.').dialog('open');">?</a></label><input type="text" name="userSelect" id="userSelect"></p>
+<p><label style="width:150px;display:inline-block;"></label>[ <a href="http://uberbots.org/forums/memberlist.php?mode=searchuser&amp;form=specialPermissions&amp;field=userSelect&amp;select_single=true" onclick="find_username(this.href); return false;">Find a member</a> ]</p>
+<p><label for="permissionPage" style="width:150px;display:inline-block">Select Page: <a href="#" onclick="$('#dialog').html('These are the pages which the user will have special permissions for. If child pages of a page inherit permissions, the user will have special permissions on those pages, as well.').dialog('open');">?</a></label><select name="permissionPage" id="permissionPage" style="min-width:150px;">
+<option value='-1'></option>
+<option value='0' style='font-weight:bold;'>Site Root</option>
+{{children}}</select></p>
+<p><label for="permissionType" style="width:150px;display:inline-block;">Permission Type <a href="#" onclick="$('#dialog').html('Read permissions allow the user to see a page that has been marked private. Write permissions allow that user to edit that page as well as see it. This option is not necessary when deleting permissions.').dialog('open');">?</a></label><select name="permissionType" id="permissionType" style="min-width:150px;">
+<option value='-1'></option>
+<option value='0'>Read </option>
+<option value='1'>Write</option>
+</select></p>
+<p><label for="confirmPermission" style="width:150px;display:inline-block;">Are you sure you want to add, modify, or delete special permissions for this user?</label><input type="checkbox" name="confirmPermission" id="confirmPermission"></p>
+<input type="hidden" name="mode" value="specialPermission">
+<p><input type="submit" value="Submit"></p>
+</form>
+<br>
+<a href="javascript:void(0);" class="showPermissions">Show/Hide User Permission List</a>
+<div id="permissions">
+{{permissions}}
+</div>
+
+</div>
+
+<h3><a href="#">Send an Email</a></h3>
+<div>
+<form action="/omni/actions/sendEmail.php" method="post">
+<p>Subject: <input type="text" value=""/ name="subject" size="40"></p>
+Message:<p>
+<textarea name="message" id="message" style="width:550px;height:200px;font:10pt Arial, Helvetica, sans-serif;"></textarea>
+</p>
+Recipient:<p>
+<select name="group">
+<option value="1">Team Members / Mentors</option>
+<option value="2">Parents</option>
+<option value="3">All</option>
+</select>
+</p>
+<input type="submit" value="Send"/><br />
+Note: Be cautious! There is no way to undo sending an email.
+</form>
+
+</div>
+
+<h3><a href="#">Send a Mass SMS Message</a></h3>
+<div>
+<form id="smsUpdate" action="/omni/actions/smsUpdates.php" method="post">
+Message:<p>
+<textarea name="message" style="width:100%;height:200px;font:10pt Arial, Helvetica, sans-serif;"></textarea>
+</p>
+<input type="submit" value="Send"/><br />
+Note: Be cautious! There is no way to undo sending a SMS message. Limit 160 characters or less.
+</form>
+</div>
+
+<h3><a href="#">Social Networking</a><h3>
+<div>
+
+<h3>Tweet to Twitter</h3>
+
+ <br/>
+<form method="post" action="" id="tweet">
+
+<p><label for="tweet" style="width:150px;display:inline-block;">Tweet: <a href="#" onclick="$('#dialog').html('This is the text that will be tweeted. Tweets will go under the @team1124 account. All tweets must be 140 characters or less.').dialog('open');">?</a></label><input type="text" style="width:100%;" name="tweet" id="tweet" ></p>
+<input type="hidden" name="mode" value="tweet">
+<p><input type="submit" value="Tweet"></p>
+</form>
+
+</div>
+<h3><a href="#">View Log</a></h3>
+<div>
+For interpreting or purging logs, contact webmaster.
+<div style="font-family:'Courier', monospace;padding:4px;background-color:beige;height:300px; overflow-y:auto;">{{log}}</div>
+<a href="javascript:void(0)" name="archLog" id="archLog">Archive Logs Now</a><br/>
+<a href="javascript:void(0)" name="oldLogs" id="oldLogs">Show Old Logs</a>
+<div id="oldLogs">
+{{oldLogs}}
+</div>
+</div>
+
+</div>
+<Br/>
+
+<br/>

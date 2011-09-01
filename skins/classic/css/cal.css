@@ -1,0 +1,12 @@
+#calendar {width:100%;}
+.calendar {width:100%;}
+#calendar TD {height:70px;text-align:left;vertical-align:top;color:white;padding:5px;width:14%;}
+#calendar A {color:white;text-indent:-5px;padding-left:5px;display:block;}
+#calendar A IMG {border:0px;}
+.event {background-color:#ff3333;}
+.day {background-color:#6685c2;}
+.eventTip {position:absolute;background-color:#ff6666;padding:5px;border:1px solid #bf0000;z-index: 3;text-decoration:none;color:white;max-width:300px;}
+.eventTip P {margin:0px;}
+#calendar .eventTip A {display:inline;margin:0px;text-indent:0px;}
+#headerRow TD {background-color:#6685c2;text-align:center;height:20px;font-weight:bold;vertical-align:middle;}
+.headerRow TD {background-color:#6685c2;text-align:center;height:20px;font-weight:bold;vertical-align:middle;}

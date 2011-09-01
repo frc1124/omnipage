@@ -1,0 +1,32 @@
+* {padding:0px;margin:0px;}
+BODY {font-family: "Arial","Helvetica",sans-serif;font-size:.75em;background:#222222 bottom left no-repeat fixed url(/omni/skins/classic/images/embossed.jpg);}
+#bodyContainer {margin-left: auto;margin-right: auto;width:800px;}
+/*header*/
+#header {height:100px;}
+#navLinks {padding:6px 15px 6px 15px;color:#ffffff;margin-right: 15px;border:#900 1.5px solid; border-top:0px; background:#7b0000 url(/omni/skins/classic/images/top-menu-repeat.jpg) repeat-x top;float:right;}
+#navLinks A {text-decoration: none; margin: 0px 8px 0px 8px; color:white;}
+.navFloat {position:absolute;margin-top:6px;margin-left:-9px;padding:5px;background-color:#7b0000;border:#900 1.5px solid; border-top:0px;z-index:1002;}
+.navFloat P {margin-bottom:10px;}
+
+#loginBox .label {width:75px;display:inline-block;}
+/*top nav menu*/
+#topMenu {color:white;height:25px;overflow-y: hidden;background: #7b0000 url(/omni/skins/classic/images/top-menu-repeat.jpg) repeat-x top;width:800px;font-weight: bold;}
+#topMenuLeft {width:15px;height:25px;background:top left url(/omni/skins/classic/images/top-menu-left.jpg);float:left;}
+#topMenuRight {width:15px;height:25px;background:top right url(/omni/skins/classic/images/top-menu-right.jpg);float:right;}
+#topMenuText {padding:4px;display: inline-block;}
+#topMenuText A, #secondMenuDiv A {text-decoration: none;color:white;}
+#topMenuText .topMenuItem, #secondMenuDiv A {margin-right:10px;margin-left:10px;}
+#secondMenuDiv {position: absolute; background-color:#7b0000;width:762px;color:white;font-size:1em;height:17px;padding:4px 19px 4px 19px;z-index:1001;}
+/*content*/
+#contentBox {background-color:#ffffe7;}
+
+#mainColumn {float:left;width:540px;padding:10px;}
+#secondaryColumn {float:right;width:220px;padding:10px;height:100%;}
+.module {padding:2px;}
+.module UL {margin-left:2em;}
+.module P {margin-bottom:10px;}
+
+H1 {font-size:200%; margin-top:12px;border-bottom: #0033cc 2px solid;}
+H2 {font-size:133%; margin-top:12px;border-bottom: #aaaaaa 2px solid;}
+
+.noBorder {border:none;}

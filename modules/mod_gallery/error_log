@@ -1,0 +1,98 @@
+[22-Aug-2010 17:55:56] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting '(' in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 4
+[22-Aug-2010 17:56:13] PHP Warning:  imagecreatefromjpeg(/skins/classic/albumBase.jpg) [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: failed to open stream: No such file or directory in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 6
+[22-Aug-2010 17:56:13] PHP Warning:  imagecreatefromjpeg(/media/photos/DSCN0214.JPG) [<a href='function.imagecreatefromjpeg'>function.imagecreatefromjpeg</a>]: failed to open stream: No such file or directory in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 7
+[22-Aug-2010 17:56:13] PHP Warning:  Wrong parameter count for imagecopymerge() in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 8
+[22-Aug-2010 17:56:13] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php:6) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 9
+[22-Aug-2010 17:56:13] PHP Warning:  imagejpeg(): supplied argument is not a valid Image resource in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 10
+[22-Aug-2010 17:56:13] PHP Warning:  imagedestroy(): supplied argument is not a valid Image resource in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 11
+[22-Aug-2010 17:56:13] PHP Warning:  imagedestroy(): supplied argument is not a valid Image resource in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 12
+[22-Aug-2010 17:59:19] PHP Parse error:  syntax error, unexpected $end, expecting T_VARIABLE or '$' in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 4
+[22-Aug-2010 18:02:22] PHP Parse error:  syntax error, unexpected $end, expecting T_VARIABLE or '$' in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 4
+[22-Aug-2010 18:14:18] PHP Parse error:  syntax error, unexpected $end, expecting T_VARIABLE or '$' in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 4
+[22-Aug-2010 18:20:17] PHP Parse error:  syntax error, unexpected $end, expecting T_VARIABLE or '$' in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 4
+[22-Aug-2010 19:42:04] PHP Parse error:  syntax error, unexpected T_ELSE in /home1/uberbots/public_html/omni/modules/mod_calendar/mod.php on line 86
+[22-Aug-2010 19:42:11] PHP Parse error:  syntax error, unexpected T_ELSE in /home1/uberbots/public_html/omni/modules/mod_calendar/mod.php on line 86
+[22-Aug-2010 19:42:16] PHP Parse error:  syntax error, unexpected T_ELSE in /home1/uberbots/public_html/omni/modules/mod_calendar/mod.php on line 86
+[22-Aug-2010 19:42:29] PHP Parse error:  syntax error, unexpected T_ELSE in /home1/uberbots/public_html/omni/modules/mod_calendar/mod.php on line 86
+[23-Aug-2010 17:23:12] PHP Parse error:  syntax error, unexpected $end in /home1/uberbots/public_html/omni/modules/mod_gallery/mod.php on line 38
+[23-Aug-2010 17:23:12] PHP Parse error:  syntax error, unexpected $end in /home1/uberbots/public_html/omni/modules/mod_gallery/mod.php on line 38
+[16-Sep-2010 16:24:37] PHP Parse error:  syntax error, unexpected $end in /home1/uberbots/public_html/omni/modules/mod_calendar/mod.php on line 53
+[23-Nov-2010 22:06:23] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:06:51] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:06:54] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:06:55] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:07:00] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:10:28] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:12:14] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:12:17] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:12:22] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:22:54] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 22:23:33] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 23:15:06] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 23:15:10] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[23-Nov-2010 23:15:16] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 23:15:19] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[23-Nov-2010 23:15:21] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[23-Nov-2010 23:15:44] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 23:15:45] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[23-Nov-2010 23:15:48] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 23:15:49] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[23-Nov-2010 23:28:33] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[25-Nov-2010 12:32:32] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[25-Nov-2010 12:32:34] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[25-Nov-2010 12:32:36] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[25-Nov-2010 12:32:38] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[25-Nov-2010 12:32:52] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[25-Nov-2010 12:33:14] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[25-Nov-2010 12:33:16] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[26-Nov-2010 08:45:05] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[26-Nov-2010 08:45:08] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[30-Nov-2010 22:39:53] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:39:55] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:45:37] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[30-Nov-2010 22:45:49] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:45:49] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:45:49] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:45:50] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:45:56] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[30-Nov-2010 22:46:00] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[30-Nov-2010 22:46:15] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:46:15] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[30-Nov-2010 22:46:17] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[30-Nov-2010 22:46:53] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[30-Nov-2010 22:46:55] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[01-Dec-2010 15:28:25] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[01-Dec-2010 15:28:26] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[09-Dec-2010 18:46:45] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[09-Dec-2010 18:46:45] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[09-Dec-2010 18:46:49] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 12000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[25-Dec-2010 18:09:15] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[25-Dec-2010 18:09:22] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[27-Dec-2010 15:30:54] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[27-Dec-2010 15:30:54] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[27-Dec-2010 15:31:27] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[27-Dec-2010 15:31:38] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[29-Dec-2010 19:00:41] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 1396 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[08-Jan-2011 13:16:33] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[08-Jan-2011 13:16:33] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 3000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 31
+[16-Jan-2011 20:46:14] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[16-Jan-2011 20:46:18] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[16-Jan-2011 20:47:04] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[16-Jan-2011 20:48:29] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[16-Jan-2011 20:48:32] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[16-Jan-2011 20:48:37] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[16-Jan-2011 20:48:43] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 16000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 52
+[29-Jan-2011 13:02:57] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home1/uberbots/public_html/omni/modules/mod_calendar/mod.php on line 223
+[14-Mar-2011 22:05:20] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[14-Mar-2011 22:05:20] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[14-Mar-2011 22:05:26] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 58
+[14-Mar-2011 22:05:49] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[14-Mar-2011 22:05:49] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[19-Mar-2011 16:01:21] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[05-Apr-2011 10:17:35] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[29-Apr-2011 15:06:44] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[29-Apr-2011 15:08:28] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[30-Apr-2011 16:55:27] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[30-Apr-2011 16:57:38] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 37
+[02-Jul-2011 17:01:42] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 44
+[30-Jul-2011 16:23:32] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 48000 bytes) in /home1/uberbots/public_html/omni/modules/mod_gallery/imageresize.php on line 44

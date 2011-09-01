@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--<meta name="language" content="English" />-->
+		<link type="text/css" href="{{skinRoot}}/css/classic/jquery-ui-1.8.2.custom.css" rel="stylesheet" />
+		<meta name="description" content="Default OmniPage Skin" />
+        <link type="text/css" href="{{skinRoot}}/css/main.css" rel="stylesheet" />
+		<style type="text/css" media="all">
+			[[IF EDITABLE]]
+			.modSort {list-style-type: none;}
+			[[END IF]]
+		</style>
+		<script src="{{skinRoot}}/scripts/jquery.js" type="text/javascript">
+		</script>
+		<script src="{{skinRoot}}/scripts/jquery-ui.js" type="text/javascript">
+        </script>
+		<script src="{{skinRoot}}/scripts/main.js" type="text/javascript">
+		</script>
+		[[IF EDITABLE]]
+        <script src="{{skinRoot}}/scripts/editing.js" type="text/javascript"></script>
+		<script type="text/javascript" src="{{skinRoot}}/jHTMLArea/scripts/jHtmlArea-0.7.0.js"></script>
+		<script type="text/javascript" src="{{skinRoot}}/jHTMLArea/scripts/jHtmlArea-0.7.0.js"></script>
+		<link rel="Stylesheet" type="text/css" href="{{skinRoot}}/jHTMLArea/style/jHtmlArea.css" />
+		[[END IF]]
+		<script type="text/javascript">
+		$(document).ready(function(){
+			{{secondMenu}}
+			pageId = "{{pageId}}";
+			});
+		</script>
+		<title>{{title}} - OmniPage</title>
+        {{additionalHead}}
+	</head>
+	<body>
+	
+	<div id="bodyContainer">
+	
+	<div id="topMenuContainer">
+	<div id="topMenu">
+		<div id="topMenuRight"></div>
+		<div id="topMenuLeft"></div>
+		<div id="topMenuText">
+			{{topMenu}}
+		</div>
+	</div>
+	<div id="secondMenuDiv"><div></div></div></div>
+	
+	[[IF NOT ISHOME]]<div id="breadcrumbs">{{breadcrumbs}}</div>[[END IF]]
+	
+	<div id="contentBox">	
+	<div id="mainColumn">
+	[[IF EDITABLE]]<ul class="modSort">[[END IF]]
+	{{mainColumn}}
+	[[IF EDITABLE]]</ul>[[END IF]]
+	</div>
+	<div id="secondaryColumn">
+	[[IF EDITABLE]]<ul class="modSort">[[END IF]]
+	{{secondColumn}}
+	[[IF EDITABLE]]</ul>[[END IF]]
+	</div>
+	
+	
+    <div style="text-align:center;clear:both;">
+    <p>Powered by <a href="http://omnipage.googlecode.com">OmniPage</a>
+	</div>
+	
+	</div>
+	</body>
+</html>
