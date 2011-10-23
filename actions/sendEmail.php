@@ -47,7 +47,7 @@ if($group=="1"||$group=="3"){
 //if sent to parents
 if($group=="2"||$group=="3"){
 	//build "To:" list
-	$query = mysql_query("SELECT `email` FROM  `emailList`");
+	$query = mysql_query("SELECT `email` FROM  `emailList`")or die(mysql_error());
 	//when we start double-opt-in, use the following line instead of the preceding line
 	//$query = mysql_query("SELECT `email` FROM `emailList` WHERE `confirmed` = '1'");
 	
@@ -57,32 +57,39 @@ if($group=="2"||$group=="3"){
 			$list .= "<".$row["email"].">; ";
 	}
 }
-
 //append footer
 $message = $_POST['message'].$footer;
 
+//makes headers
+$head = 'MIME-Version: 1.0' . "\r\n" .'Content-type: text/html; charset=UTF-8'."\r\n".$list;
+$subject = $_POST['subject'];
 //mail message if admin is signed in
 if(userPermissions(1,2)&&!isset($_GET["calendar"])){
-	$mail = mail("",$_POST["subject"],$message,'MIME-Version: 1.0' . "\r\n" . 'From: noreply@uberbots.org' . "\r\n" . 'Content-type: text/html; charset=UTF-8'."\r\n".$list) or die("Mail sending failed");
-	logEntry("Mass email sent :".$_POST["subject"]);
-	if($mail)
+	$mail = mail("",$_POST["subject"],$message,$head) or die("Mail sending failed");
+	//$mail = mail("plnyyanks@gmail.com",$_POST['subject'],$message.$head);
+	//echo "mail('',$subject,$message,$head) or die('Mail sending failed<p>'.$list)";
+	//mail("plnyyanks@gmail.com","foo","foo")or die("foobar");
+	if($mail){
+		logEntry("Mass email sent :".$_POST["subject"]);
+		logEmail($_POST['subject'],$message);
 		header("location: /o/control_panel");
-	else
+	}else{
+		LogEntry("Mass email sending failed");
 		echo "Mailing error!";
+	}
 }
+
 
 //otherwise, message is weekly update if no IP is found
 if($_SERVER['REMOTE_ADDR']==""||isset($_GET['calendar'])){
 	//make html mail
 	$list = 'MIME-Version: 1.0' . "\r\n" .
-			'From: noreply@uberbots.org' . "\r\n" .
 			'Content-type: text/html; charset=iso-8859-1'."\r\n".
 			'X-Mailer: PHP/' . phpversion() ."\r\n". $list;
 	
 	//create weekly updates
 	$timeStart = (24*60*60) + time();
 	$timeEnd = $timeStart + (7*24*60*60);
-
 	$updates.= "Hello, this is the &Uuml;berBots weekly event update for the week of " . date("m/d/y", $timeStart) . " to " . date("m/d/y", $timeEnd) . ".<br />\r\n";
 	$updates.= "If you would like further information and updates, please visit our calendar page <a href=\"http://www.uberbots.org/o/calendar\">here</a>.<br /><br />\r\n\r\n";
 	
@@ -141,9 +148,14 @@ FROM  `phpbb_posts` WHERE `post_id` = '".$row["topic_first_post_id"]."'");
 			}
 	}}
 	$subject = "UberBots Weekly Updates: " . date("m/d/y", $timeStart) . " to " . date("m/d/y", $timeEnd);
+	if(!isset($_GET["calendar"])){
+		$mail = mail("",$subject,$updates.$footer,$list) or die("Mail sending failed<p>".$list);
+		if($mail)
+			logEntry("Weekly Updates Sent");
+	}else{
+		echo $updates."<p>".str_replace(array("<",">"),array("&lt;","&gt;"),$list);
+	}
 	
-	mail("",$subject,$updates.$footer,$list) or die("Mail sending failed<p>".$list);
-
-	echo $updates."<p>".$list;
 }
+
 ?>

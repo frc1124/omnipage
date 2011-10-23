@@ -18,7 +18,9 @@ class mod_gallery {
 	public $path = 'mod_gallery';
 
 	public function render($properties) {
-	
+		$y="";
+		if(isset($properties['year'])&&is_numeric($properties['year']))
+			$y=",year:".$properties['year'];
 		$output = "
 <style type=\"text/css\" scoped>
 .thumbnail {display:inline-block; width:119px; margin:5px;text-align:center;color:#003399;cursor:pointer;height:136px;}
@@ -35,7 +37,7 @@ function hideRight(){
 	}
 
 function showAlbum(id){
-	$.post('/omni/ajax/getAlbum.php',{parentId:id},
+	$.post('/omni/ajax/getAlbum.php',{parentId:id".$y."},
 		   function(data){
 			   $('#leftPanel .thumbnail').each(function(){
 				//$(this).css({left:$(this).offset().left,top:$(this).offset().top});
@@ -67,10 +69,15 @@ $(document).ready(function(){
 	$('#rightPanel').hide();
 	});
 </script>
-<div class='ui-corner-all' id='leftPanel'>";
+<div class='ui-corner-all' id='leftPanel' style='height:auto;max-height:650px;overflow:auto'>";
 		
+		if(is_numeric($properties["year"])){
+			$year = "&year=".$properties['year'];
+		}else{
+			$year = "";
+		}
 		//return all pictures in starting album
-		$output .= file_get_contents("http://uberbots.org/omni/ajax/getAlbum.php?parentId=0");
+		$output .= file_get_contents("http://uberbots.org/omni/ajax/getAlbum.php?parentId=0".$year);
 		
 		$output .= "</div><div id='rightPanel' class='ui-corner-all'><div id='rightPanelLiner'></div></div>";
 		
@@ -78,15 +85,17 @@ $(document).ready(function(){
 		
 	}
 	public function renderEdit($properties) {
+		return "<label for='gallery_".$properties["pageId"]."_".$properties["instanceId"]."' style='display:inline-block;width:150px;'>Gallerly Display Year: </label><input name='gallery_".$properties["pageId"]."_".$properties["instanceId"]."' id='gallery_".$properties["pageId"]."_".$properties["instanceId"]."' value='".$properties["year"]."'/><br/><button onclick=\"alert($('#gallery_".$properties["pageId"]."_".$properties["instanceId"]."').val());saveMod(".$properties["pageId"].",".$properties["instanceId"].",{year:$('#gallery_".$properties["pageId"]."_".$properties["instanceId"]."').val()})\">Save</button>";
 	}
 
 	public function edit($properties) {
+		setVariables(mysql_real_escape_string($properties['pageId']),mysql_real_escape_string($properties['instanceId']),array('year'=>$properties['year']));
 	}
 	
 	var $sqlNames, $sqlDefaults;
 	
 	public function setup() {
-		$this->sqlNames = array();
-		$this->sqlDefaults = array();
+		$this->sqlNames = array("year");
+		$this->sqlDefaults = array("");
 	}
 }

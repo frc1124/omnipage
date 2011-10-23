@@ -16,12 +16,23 @@
 include "../includes/common.php";
 
 mySQLConnect();
-
+if(is_numeric($_POST['year'])){
+	$year = " AND `year` = '".$_POST['year']."'";
+}elseif(isset($_GET['year'])){
+	$year = " AND `year` = '".$_GET['year']."'";
+}else{
+	$year = "";
+}
 //return all pictures in starting album
-$query = mysql_query("SELECT * FROM `photos` WHERE `parentId` = '".mysql_real_escape_string($_POST["parentId"])."' ORDER BY `YEAR` DESC") or die(mysql_error());
+$query = mysql_query("SELECT * FROM `photos` WHERE `parentId` = '".mysql_real_escape_string($_POST["parentId"])."'".($_POST["parentId"]==0?$year:"")." ORDER BY `YEAR` DESC") or die(mysql_error());
 
 if($_POST["parentId"]==0){
-	echo "<h2>Photo Gallery</h2>";
+	if(isset($_GET['year'])){
+		$head = " From ".$_GET['year'];
+	}else{
+		$head = "";
+	}
+	echo "<h2>Photo Gallery".$head."</h2>";
 	}
 
 else{
@@ -32,7 +43,7 @@ else{
 	".htmlentities($albumRow["year"])." - ".htmlentities($albumRow["caption"])."<p>";
 
 	}
-	
+
 while($row = mysql_fetch_array($query)){
 	if($row["type"] == "1"){
 		$thumbImage = mysql_fetch_array(mysql_query("SELECT * FROM `photos` WHERE `parentId` = '".$row["photoId"]."' AND `type` = '0'"));

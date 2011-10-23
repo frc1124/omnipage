@@ -16,6 +16,7 @@ global $user,$root_path;
 $file = fopen("$root_path/logs/security.txt",'a');
 $entry = str_replace("\n","\\n",$entry);
 fwrite($file,$user->data["user_email"].":".$user->data["username_clean"].":".$user->data["user_ip"].":".date("D M j G:i:s T Y").":".$entry."\n");
+fclose($file);
 }
 
 function userPermissions($type,$pageId=""){
@@ -42,15 +43,24 @@ function userPermissions($type,$pageId=""){
 	$result = true;
 	
 	//check database for individual user permissions
-	$query = mysql_query("SELECT * FROM `pagePermissions` WHERE `pageId` = '".mysql_real_escape_string($pageId)."' AND `userId` = '".$user->data["user_id"]."'");
+	$query = mysql_query("SELECT * FROM `pagePermissions` WHERE `pageId` = '".mysql_real_escape_string($pageId)."' AND `id` = '".$user->data["user_id"]."'");
 	$row = mysql_fetch_array($query);	
 	
 	if($row){
-		if($row["type"]==0 && $type==0)
+		if($row["access"]==0 && $type==0)
 		$result = true;
-		if($row["type"]==1)
+		if($row["access"]==1)
 		$result = true;
 		}
 	return $result;
-	}
+}
+
+function logEmail($subject,$contents){
+	global $user,$root_path;
+	$date = date("d-m-Y G:i:s");
+	$entry = "<h1>Mass Email Sent on $date</h1><p><strong>Subject: </strong>$subject</p><br/><div>$contents</div>";
+	$file = fopen("$root_path/logs/mass emails/".$date.".html",'a+');
+	fwrite($file,$entry);
+	fclose($file);
+}
 ?>

@@ -14,6 +14,9 @@
 //root path
 $root_path = "your/root/path/omni";
 
+//domain
+$domain = "http://yourDomain.com";
+
 //includes
 include "$root_path/includes/mysql.php";
 include "$root_path/includes/module.php";
