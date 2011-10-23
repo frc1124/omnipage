@@ -21,7 +21,7 @@ class mod_sitemap {
 		while($row = mysql_fetch_array($query)){
 			if($row["id"]!=0 && userPermissions(0,$row["id"])){
 			$title = str_replace(" ","_",$row['title']);
-            $this->output .= "<li><a href='http://uberbots.org/o/".$url.$title."'>".$row['title']."</a>";
+            $this->output .= "<li><a href='/o/".$url.$title."'>".$row['title']."</a>";
             $this->output .= "<ul>";
             $this->listChildren($row["id"],$level+1,$url.$title."/");
 			
