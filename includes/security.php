@@ -8,7 +8,7 @@
 
 /* Security features
 *  version 0.1
-*  developed by Matt Howard
+*  developed by Matt Howard, Phil Lopreiato
 */
 
 function logEntry($entry){
@@ -28,8 +28,8 @@ function userPermissions($type,$pageId=""){
 	//everyone starts out without permission
 	$result = false;
 	
-	//Admin and Management groups and Ligotti have automatic full permission (and evan for proofreading process)
-	if(($user->data["group_id"]==5)||($user->data["group_id"]==10)||($user->data["user_id"]==73)||($user->data["user_id"]==22698))
+	//Admin group has full permissions
+	if(($user->data["group_id"]==5))
 	$result = true;
 	
 	$query = mysql_query("SELECT * FROM `pages` WHERE `id` = '".mysql_real_escape_string($pageId)."'") or die(mysql_error());
