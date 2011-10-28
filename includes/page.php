@@ -18,10 +18,10 @@ class url{
 	
 	//initialize
 	public function init(){
-	global $mySQLLink;
+	global $mySQLLink,$domain;
 	
 	//full url
-	$this->fullUrl = "http://www.uberbots.org".$_SERVER['REQUEST_URI'];
+	$this->fullUrl = $domain.$_SERVER['REQUEST_URI'];
 
 	//everything after ".org"
 	$url = $_SERVER['REQUEST_URI'];
