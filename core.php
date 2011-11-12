@@ -59,9 +59,9 @@ $config = array(
 $html = parseSkin($skinVars,"main",$options);
 
 // Tidy
-$tidy = new tidy;
+/*$tidy = new tidy;
 $tidy->parseString($html, $config, 'utf8');
-$tidy->cleanRepair();
+$tidy->cleanRepair(); */
   
 echo $html;
 ?>
