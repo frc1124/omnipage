@@ -6,7 +6,7 @@ padding:0;
 BODY {
 font-family:"Arial","Helvetica",sans-serif;
 font-size:.75em;
-background:#222 bottom left no-repeat fixed url(/omni/skins/classic/images/embossed.jpg);
+background:#222;
 color:#900;
 }
 
