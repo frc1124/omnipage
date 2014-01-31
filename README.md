@@ -1,7 +1,7 @@
 omnipage
 ========
 
-An open source PHP/mySQL CMS
+An open source PHP/mySQL CMS. More information can be found [here](http://uberbots.org/o/About/Our_Website)
 
 ## Introduction
 OmniPage was designed and coded by Matt Howard, Phil Lopreiato, and Evan Dorsky. It is a database-oriented modular content management system that allows for simple administration and design of a web site. The OmniPage system separates code and content, making editing and maintenance easy. All code is contained within included PHP scripts and all content is stored in the database. The OmniCore? takes the content from the database and integrates it with the code and skins, allowing for a separation of source code and content. This makes a very powerful and modular CMS.
